@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(linked_list_sample
         main.cpp
         LinkedListItem.cpp
-        LinkedList.cpp)
+        LinkedList.cpp LinkedList.h LinkedListItem.h LinkedListItem.cpp LinkedList.cpp LinkedListException.h)
