@@ -4,37 +4,11 @@
 
 #include "LinkedListItem.h"
 
-LinkedListItem::LinkedListItem(int v) {
-    value = v;
-    next = nullptr;
-    prev = nullptr;
-}
-
-LinkedListItem::LinkedListItem(const LinkedListItem &copy) {
-    value = copy.value;
-    next = copy.next;
-    prev = copy.prev;
-}
-
-LinkedListItem& LinkedListItem::operator=(const LinkedListItem &copy) {
-    if(this == &copy)
-        return *this;
-    value = copy.value;
-    next = copy.next;
-    prev = copy.prev;
-
-    return *this;
-}
-
-void LinkedListItem::~LinkedListItem() {
-    delete next;
-    delete prev;
-    next = nullptr;
-    prev = nullptr;
-}
+LinkedListItem::LinkedListItem(int value)
+    : value(value), next(nullptr), prev(nullptr) {}
 
 int LinkedListItem::getItem() {
-    return 0;
+    return value;
 }
 
 LinkedListItem* LinkedListItem::getNextItem() {
@@ -45,10 +19,10 @@ LinkedListItem* LinkedListItem::getPreviousItem() {
     return prev;
 }
 
-void LinkedListItem::setNextItem(LinkedListItem &n) {
-    next = &n;
+void LinkedListItem::setNextItem(LinkedListItem *next){
+    this->next = next;
 }
 
-void LinkedListItem::setPreviousItem(LinkedListItem &p) {
-    prev = &p;
+void LinkedListItem::setPreviousItem(LinkedListItem *prev) {
+    this->prev = prev;
 }

@@ -5,14 +5,17 @@
 #ifndef LINKED_LIST_SAMPLE_LINKEDLIST_H
 #define LINKED_LIST_SAMPLE_LINKEDLIST_H
 
-#include "LinkedList.h"
-using namespace std;
+#include "LinkedListItem.h"
+#include "LinkedListException.h"
 
 class LinkedList {
 public:
     LinkedList();
 
     int getLength();
+    void incrementLength();
+    void decrementLength();
+
     void printList();
     void printListBackwards();
 

@@ -7,16 +7,13 @@
 
 class LinkedListItem {
 public:
-    LinkedListItem(int v);
-    LinkedListItem(const LinkedListItem &copy);
-    LinkedListItem& operator=(const LinkedListItem &copy);
-    ~LinkedListItem();
+    LinkedListItem(int value);
 
     int getItem();
     LinkedListItem* getNextItem();
     LinkedListItem* getPreviousItem();
-    void setNextItem(LinkedListItem &n);
-    void setPreviousItem(LinkedListItem &p);
+    void setNextItem(LinkedListItem *next);
+    void setPreviousItem(LinkedListItem *prev);
 
 private:
     int value;
