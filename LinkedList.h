@@ -13,8 +13,8 @@ public:
     LinkedList();
 
     int getLength();
-    string printList();
-    string printListBackwards();
+    void printList();
+    void printListBackwards();
 
     void addItemToFront(LinkedListItem *item);
     void addItemAt(int index, LinkedListItem *item);

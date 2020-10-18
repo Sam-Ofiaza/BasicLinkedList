@@ -13,11 +13,11 @@ int LinkedList::getLength() {
     return 0;
 }
 
-string LinkedList::printList() {
+void LinkedList::printList() {
     return nullptr;
 }
 
-string LinkedList::printListBackwards() {
+void LinkedList::printListBackwards() {
     return nullptr;
 }
 
