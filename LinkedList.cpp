@@ -18,6 +18,8 @@ LinkedListItem *LinkedList::getFirstItem() {
 }
 
 LinkedListItem *LinkedList::getItemAt(int index) {
+    if(index < 0 || index == length)
+        throw LinkedListException();
     LinkedListItem *current = head;
     for(int i = 0; i < length; i++) {
         if (i == index)
@@ -80,7 +82,9 @@ void LinkedList::addItemToFront(LinkedListItem *item) {
 }
 
 void LinkedList::addItemAt(int index, LinkedListItem *item) {
-    if(index == 0)
+    if(index < 0 || index > length)
+        throw LinkedListException();
+    else if(index == 0)
         addItemToFront(item);
     else if(index == length)
         addItemToBack(item);
@@ -89,9 +93,8 @@ void LinkedList::addItemAt(int index, LinkedListItem *item) {
         item->setPreviousItem(getItemAt(index-1));
         getItemAt(index)->setPreviousItem(item);
         getItemAt(index-1)->setNextItem(item);
+        incrementLength();
     }
-
-    incrementLength();
 }
 
 void LinkedList::addItemToBack(LinkedListItem *item) {
@@ -115,6 +118,14 @@ void LinkedList::addItemToBack(LinkedListItem *item) {
 
 LinkedListItem *LinkedList::removeFirstItem() {
     LinkedListItem *current = head;
+    if(length == 0)
+        return nullptr;
+    else if(length == 1){
+        head = nullptr;
+        tail = nullptr;
+        decrementLength();
+        return current;
+    }
     head = head->getNextItem();
     head->setPreviousItem(nullptr);
     decrementLength();
@@ -135,6 +146,14 @@ LinkedListItem *LinkedList::removeItemAt(int index) {
 
 LinkedListItem *LinkedList::removeLastItem() {
     LinkedListItem *current = tail;
+    if(length == 0)
+        return nullptr;
+    else if(length == 1){
+        tail = nullptr;
+        head = nullptr;
+        decrementLength();
+        return current;
+    }
     tail = tail->getPreviousItem();
     tail->setNextItem(nullptr);
     decrementLength();

@@ -58,7 +58,7 @@ void testAddingToMiddle() {
         cerr << "Able to add null to the front?" << endl;
         exit(1);
     } catch ( LinkedListException e) {
-        // Expected
+        std::cout << "Tried to add nullptr." << endl;
     }
 
     LinkedListItem* firstItem = new LinkedListItem(20);
@@ -67,32 +67,28 @@ void testAddingToMiddle() {
         cerr << "Able to add to an invalid location" << endl;
         exit(1);
     } catch ( LinkedListException e) {
-        // Expected
+        std::cout << "Tried to add at invalid location." << endl;
     }
 
     myLinkedList.addItemAt(0, firstItem);
     assert(myLinkedList.getLength() == 1);
     assert(myLinkedList.getFirstItem() == myLinkedList.getLastItem());
-
     LinkedListItem* lastItem = new LinkedListItem(10);
     myLinkedList.addItemAt(1, lastItem);
     assert(myLinkedList.getLength() == 2);
     assert(myLinkedList.getFirstItem() != myLinkedList.getLastItem());
     assert(myLinkedList.getItemAt(1)->getItem() == 10);
 
-
     LinkedListItem* middleItem = new LinkedListItem(15);
     myLinkedList.addItemAt(1, middleItem);
     assert(myLinkedList.getLength() == 3);
     assert(myLinkedList.getItemAt(1) != myLinkedList.getLastItem());
-    assert(myLinkedList.getItemAt(1)->getItem() == 15);
-
     try {
         myLinkedList.getItemAt(3);
         cerr << "Able to get an out-of-bounds item!";
         exit(-1);
     } catch ( LinkedListException e) {
-        // Expected
+        std::cout << "Tried to get item at an invalid index." << endl;
     }
 
     // Try traversing the list
@@ -100,7 +96,6 @@ void testAddingToMiddle() {
     assert(node->getItem() == 20);
     assert(node->getNextItem()->getItem() == 15);
     assert(node->getNextItem()->getNextItem()->getItem() == 10);
-
     // Now go backwards
     node = myLinkedList.getLastItem();
     assert(node->getItem() == 10);
@@ -127,7 +122,7 @@ void testAddingToEnd() {
         cerr << "Able to add null to the back?" << endl;
         exit(1);
     } catch ( LinkedListException e) {
-        // Expected
+        std::cout << "Tried to add nullptr." << endl;
     }
 
     LinkedListItem* firstItem = new LinkedListItem(10);
