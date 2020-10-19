@@ -44,24 +44,6 @@ void LinkedList::decrementLength() {
     length--;
 }
 
-void LinkedList::printList() {
-    for (int i = 0; i < length; i++) {
-        if(i == length-1)
-            cout << getItemAt(i)->getItem() << " " << endl;
-        else
-            cout << getItemAt(i)->getItem() << " ";
-    }
-}
-
-void LinkedList::printListBackwards() {
-    for (int i = length-1; i >= 0; i--) {
-        if(i == 0)
-            cout << getItemAt(i)->getItem() << " " << endl;
-        else
-            cout << getItemAt(i)->getItem() << " ";
-    }
-}
-
 void LinkedList::addItemToFront(LinkedListItem *item) {
     if (item == nullptr)
         throw LinkedListException();
@@ -158,4 +140,22 @@ LinkedListItem *LinkedList::removeLastItem() {
     tail->setNextItem(nullptr);
     decrementLength();
     return current;
+}
+
+void LinkedList::printList() {
+    for (int i = 0; i < length; i++) {
+        if(i == length-1)
+            cout << getItemAt(i)->getItem() << " " << endl;
+        else
+            cout << getItemAt(i)->getItem() << " ";
+    }
+}
+
+void LinkedList::printListBackwards() {
+    for (int i = length-1; i >= 0; i--) {
+        if(i == 0)
+            cout << getItemAt(i)->getItem() << " " << endl;
+        else
+            cout << getItemAt(i)->getItem() << " ";
+    }
 }

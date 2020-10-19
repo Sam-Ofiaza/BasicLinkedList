@@ -12,12 +12,13 @@ class LinkedList {
 public:
     LinkedList();
 
+    LinkedListItem* getFirstItem();
+    LinkedListItem* getItemAt(int index);
+    LinkedListItem* getLastItem();
+
     int getLength();
     void incrementLength();
     void decrementLength();
-
-    void printList();
-    void printListBackwards();
 
     void addItemToFront(LinkedListItem *item);
     void addItemAt(int index, LinkedListItem *item);
@@ -27,9 +28,8 @@ public:
     LinkedListItem* removeItemAt(int index);
     LinkedListItem* removeLastItem();
 
-    LinkedListItem* getFirstItem();
-    LinkedListItem* getItemAt(int index);
-    LinkedListItem* getLastItem();
+    void printList();
+    void printListBackwards();
 
 private:
     LinkedListItem *head;
