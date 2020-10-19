@@ -156,6 +156,6 @@ void testAddingToEnd() {
 
 int main(int argc, char** argv) {
     testAddingToBeginning();
-    //testAddingToMiddle();
-    //testAddingToEnd();
+    testAddingToMiddle();
+    testAddingToEnd();
 }
